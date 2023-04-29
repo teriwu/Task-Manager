@@ -13,6 +13,10 @@ async def fetch_all_items():
     items.append(Item(**document))
   return items
 
+async def fetch_item(title):
+  document = await collection.find_one({"title": title})
+  return document
+
 async def post_item(item):
   document = item
   result = await collection.insert_one(document)

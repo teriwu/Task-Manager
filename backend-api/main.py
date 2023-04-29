@@ -7,6 +7,7 @@ app = FastAPI()
 
 from database import (
   fetch_all_items,
+  fetch_item,
   post_item,
 )
 
@@ -39,12 +40,12 @@ async def get_items():
     return response
   raise HTTPException("404 no items")
 
-# @app.get ("/items/{id}")
-# async def get_item():
-#   response = await # fetch_item()
-#   if response:
-#     return response
-#   raise HTTPException("404 no items")
+@app.get ("/items/{id}")
+async def get_item():
+  response = await fetch_item()
+  if response:
+    return response
+  raise HTTPException("404 no items")
 
 @app.post ("/items", response_model=Item)
 async def create_item(item:Item): # Makes sure the input is a type of class to specify the structure of Item
