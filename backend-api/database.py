@@ -22,8 +22,8 @@ async def post_item(item):
   result = await collection.insert_one(document)
   return document
 
-async def update_item(item):
+async def put_item(item):
   await collection.update_one({"title": title}, {"$set":{
-    "description":description}})
+    "description": description}})
   document = await collection.find_one({"title": title})
   return document

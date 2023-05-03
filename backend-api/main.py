@@ -9,6 +9,7 @@ from database import (
   fetch_all_items,
   fetch_item,
   post_item,
+  put_item,
 )
 
 # allows access to db after setting up middleware cors
@@ -54,12 +55,12 @@ async def create_item(item:Item): # Makes sure the input is a type of class to s
     return response
   raise HTTPException("404 no items")
 
-# @app.put ("/items/{id}")
-# async def update_item():
-#   response = await # put_item()
-#   if response:
-#     return response
-#   raise HTTPException("404 no items")
+@app.put ("/items/{id}")
+async def update_item():
+  response = await put_item()
+  if response:
+    return response
+  raise HTTPException("404 no items")
 
 # @app.delete ("/items/{id}")
 # async def delete_item():
