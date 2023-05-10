@@ -10,6 +10,7 @@ from database import (
   fetch_item,
   post_item,
   put_item,
+  delete_item,
 )
 
 # allows access to db after setting up middleware cors
@@ -24,11 +25,11 @@ app.add_middleware(
   allow_headers= ["*"],
 )
 
-# CRUD
-# GET
-# POST
-# PUT
-# DELETE
+"""CRUD
+GET
+POST
+PUT
+DELETE"""
 
 @app.get ("/")
 async def read_root():
@@ -37,30 +38,30 @@ async def read_root():
 @app.get ("/items")
 async def get_items():
   response = await fetch_all_items()
-  if response:
-    return response
-  raise HTTPException("404 no items")
+  # if response:
+  return response
+  # raise HTTPException("404 no items")
 
-@app.get ("/items/{id}")
-async def get_item():
-  response = await fetch_item()
+@app.get ("/items/{title}", response_model=Item)
+async def get_item(title):
+  response = await fetch_item(title)
   if response:
     return response
-  raise HTTPException("404 no items")
+  raise HTTPException(404, "404 no items")
 
 @app.post ("/items", response_model=Item)
 async def create_item(item:Item): # Makes sure the input is a type of class to specify the structure of Item
   response = await post_item(item.dict())
   if response:
     return response
-  raise HTTPException("404 no items")
+  raise HTTPException(404, "404 no items")
 
-@app.put ("/items/{id}")
-async def update_item():
-  response = await put_item()
+@app.put ("/items/{title}", response_model=Item)
+async def update_item(title, description):
+  response = await put_item(title, description)
   if response:
     return response
-  raise HTTPException("404 no items")
+  raise HTTPException(404, "404 no items")
 
 # @app.delete ("/items/{id}")
 # async def delete_item():
@@ -68,3 +69,10 @@ async def update_item():
 #   if response:
 #     return response
 #   raise HTTPException("404 no items")
+
+@app.delete ("/items/{title}", response_model=Item)
+async def remove_item(title):
+  response = await delete_item(title)
+  if response: 
+    return response
+  raise HTTPException(404, "Item does not exist")
