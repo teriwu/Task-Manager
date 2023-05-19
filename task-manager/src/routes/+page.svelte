@@ -1,15 +1,16 @@
-<h1>Welcome to SvelteKit</h1>
+<h1>Welcome to SvelteKit</hflowbite1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
 <script>
-	import { Alert } from 'flowbite-svelte';
+	import { Alert } from "flowbite-svelte";
+  import { Footer, FooterCopyright, FooterLinkGroup, FooterLink } from "flowbite-svelte";
 </script>
 
 <svelte:head>
 	<title>Task Manager</title>
 	<meta name="description" content="Task manager app in the making" />
   <style>
-    /* @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); */
+    /* @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap"); */
     /* <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> */
   </style>
 </svelte:head>
@@ -25,3 +26,14 @@
     <p class="text-2xl font-bold text-center font-pacifico">Heading Test</p>
   </div>
 </section>
+
+<!-- Temporary footer -->
+<Footer>
+  <FooterCopyright href="/" by="Flowbite™" year={2023} />
+  <FooterLinkGroup ulClass="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+    <FooterLink href="/">About</FooterLink>
+    <FooterLink href="/">Privacy Policy</FooterLink>
+    <FooterLink href="/">Licensing</FooterLink>
+    <FooterLink href="/">Contact</FooterLink>
+  </FooterLinkGroup>
+</Footer>
