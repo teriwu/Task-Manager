@@ -1,10 +1,14 @@
-<h1>Welcome to SvelteKit</hflowbite1>
+<h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
 <script>
 	import { Alert } from "flowbite-svelte";
   import { Footer, FooterCopyright, FooterLinkGroup, FooterLink } from "flowbite-svelte";
+  import DarkMode from "flowbite-svelte";
+  let btnClass = 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-xl p-2';
 </script>
+
+<DarkMode {btnClass} />
 
 <svelte:head>
 	<title>Task Manager</title>
@@ -21,7 +25,7 @@
 	</Alert>
 </div>
 
-<Skeleton class="py-4" />
+<!-- <Skeleton class="py-4" />
 <ImagePlaceholder class="py-4" />
 
 <Banner id="default-banner" position="absolute">
@@ -45,13 +49,14 @@
         >Flowbite Library</a
       ></span>
   </p>
-</Banner>
+</Banner> -->
 
 <section>
   <div class="container mx-auto max-w-lg h-[600px] p-4 border-solid border-black rounded-lg shadow-lg">
     <p class="text-2xl font-bold text-center font-pacifico">Heading Test</p>
   </div>
 </section>
+
 
 <!-- Temporary footer -->
 <Footer>
