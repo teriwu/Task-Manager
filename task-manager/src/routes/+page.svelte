@@ -69,11 +69,49 @@ function removeFromList(index) {
     <TabItem open title="Medium">
       <div class="container mx-auto max-w-lg h-[600px] p-4 border-solid border-black rounded-lg shadow-lg">
         <p class="text-2xl font-bold text-center font-pacifico">Todo</p>
+        <div class="mx-auto">
+          <input bind:value={newItem} type="text" placeholder="new todo item..">
+          <button on:click={addToList}>Add</button>
+          
+          <br/>
+          {#each todoList as item, index}
+            <input bind:checked={item.status} type="checkbox">
+            <span class:checked={item.status}>{item.text}</span>
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <span on:click={() => removeFromList(index)}>❌</span>
+            <br/>
+          {/each} 
+          
+          <style> 
+            .checked {
+                  text-decoration: line-through;
+              }
+          </style>
+        </div>
       </div>
     </TabItem>
     <TabItem open title="Low">
       <div class="container mx-auto max-w-lg h-[600px] p-4 border-solid border-black rounded-lg shadow-lg">
         <p class="text-2xl font-bold text-center font-pacifico">Todo</p>
+        <div class="mx-auto">
+          <input bind:value={newItem} type="text" placeholder="new todo item..">
+          <button on:click={addToList}>Add</button>
+          
+          <br/>
+          {#each todoList as item, index}
+            <input bind:checked={item.status} type="checkbox">
+            <span class:checked={item.status}>{item.text}</span>
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <span on:click={() => removeFromList(index)}>❌</span>
+            <br/>
+          {/each} 
+          
+          <style> 
+            .checked {
+                  text-decoration: line-through;
+              }
+          </style>
+        </div>
       </div>
     </TabItem>
     <TabItem open title="Notes">
