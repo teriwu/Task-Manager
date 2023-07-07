@@ -27,6 +27,9 @@ function removeFromList(index) {
   <style>
     /* @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap"); */
     /* <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> */
+    h1 {
+      font-family: "Pacifico", sans-serif;
+    }
   </style>
 </svelte:head>
 
@@ -41,7 +44,7 @@ function removeFromList(index) {
   <Tabs class="container mx-auto max-w-lg">
     <TabItem open title="High">
       <div class="container mx-auto max-w-lg h-[600px] p-4 border-solid border-black rounded-lg shadow-lg">
-        <p class="text-2xl font-bold text-center font-pacifico">Todo</p>
+        <h1 class="text-2xl font-bold text-center font-pacifico">Todo</h1>
         <div class="mx-auto">
           <input bind:value={newItem} type="text" placeholder="new todo item..">
           <button on:click={addToList}>Add</button>
