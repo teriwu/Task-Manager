@@ -25,8 +25,6 @@ function removeFromList(index) {
 	<title>Task Manager</title>
 	<meta name="description" content="Task manager app in the making" />
   <style>
-    /* @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap"); */
-    /* <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> */
     h1 {
       font-family: "Pacifico", sans-serif;
     }
